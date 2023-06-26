@@ -18,7 +18,7 @@ productVerification(article){
 };
 priceVerification(article,price) {
     return cy.contains('p',`${article}`).siblings('#productPrice').invoke('text').then(precio =>{
-        assert.equal(precio,price)
+        assert.equal(precio,`$${price}`);
     });
   
 };

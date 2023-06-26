@@ -1,19 +1,19 @@
 export class LoginPage {
     constructor() {
-        this.userInput = '#user';
-        this.passwordInput = '#pass';
-        this.loginBtn = '#submitForm';
+        this.userInput = '//input[@name="user"]';
+        this.passwordInput = '//input[contains(@name,"pass")]';
+        this.loginBtn = '//button[starts-with(text(),"Log")]';
     }
     escribirUsuario(usuario) {
-        cy.get(this.userInput).type(usuario);
+        cy.xpath(this.userInput).type(usuario);
     };
 
     escribirContraseña(contraseña) {
-        cy.get(this.passwordInput).type(contraseña);
+        cy.xpath(this.passwordInput).type(contraseña);
     };
 
     clickLoginBtn() {
-        cy.get(this.loginBtn).click();
+        cy.xpath(this.loginBtn).click();
     };
 
     
