@@ -20,15 +20,12 @@ describe('Actividad Pre-entrega', ()=>{
         })
     });
     beforeEach('Visita pagina y login', ()=>{
-        cy.visit('')
+        cy.visit('');
         registerPage.clickIniciaSecion();
         loginpage.escribirUsuario(data.datosLogin.usuario);
         loginpage.escribirContraseña(data.datosLogin.contraseña);
         loginpage.clickLoginBtn();
     });
-    it.skip("prueba de fixture",()=>{
-        cy.log("hello");
-    })
     it("Debe elegir dos productos y los añade al carrito", () =>{
         homePage.clickOnlineShopButton();
         productsPage.addItemToCart(data.articulos.articulo1.nombre);
@@ -40,7 +37,7 @@ describe('Actividad Pre-entrega', ()=>{
         shoppingCartPage.productVerification(data.articulos.articulo1.nombre);
         shoppingCartPage.productVerification(`${data.articulos.articulo2.nombre}`);
         shoppingCartPage.priceVerification(data.articulos.articulo1.nombre,data.articulos.articulo1.precio);
-        shoppingCartPage.priceVerification(data.articulos.articulo2.nombre,data.articulos.articulo1.precio);
+        shoppingCartPage.priceVerification(data.articulos.articulo2.nombre,data.articulos.articulo2.precio);
         shoppingCartPage.devolverPrecio(totalPrice);
     });
 })
