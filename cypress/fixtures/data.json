@@ -2,11 +2,11 @@
     "articulos": {
         "articulo1":{
             "nombre": "Black Jacket",
-            "precio": "25"
+            "precio": 25
         },
         "articulo2":{
             "nombre": "White Shoes",
-            "precio": "30"
+            "precio": 30
         }
     },
     "datosLogin": {
