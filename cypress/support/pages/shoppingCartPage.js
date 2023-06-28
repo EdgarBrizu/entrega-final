@@ -7,7 +7,7 @@ clickShowTotalPriceBtn() {
     cy.contains(this.totalPriceBtn).click();
 }
 devolverPrecio(price){
-    return cy.xpath(this.totalPriceNumber).invoke('text')
+    return cy.xpath(this.totalPriceNumber).invoke('text');
 }
 productVerification(article){
     return cy.contains('p',`${article}`).invoke('text');
