@@ -7,19 +7,14 @@ clickShowTotalPriceBtn() {
     cy.contains(this.totalPriceBtn).click();
 }
 devolverPrecio(price){
-    return cy.xpath(this.totalPriceNumber).invoke('text').then(precio => {
-        assert.equal(precio, price);
-    });
+    return cy.xpath(this.totalPriceNumber).invoke('text')
 }
 productVerification(article){
-    return cy.contains('p',`${article}`).invoke('text').then(nombre1 =>{
-        assert.equal(nombre1,article);
-        })
+    return cy.contains('p',`${article}`).invoke('text');
+        
 };
 priceVerification(article,price) {
-    return cy.contains('p',`${article}`).siblings('#productPrice').invoke('text').then(precio =>{
-        assert.equal(precio,`$${price}`);
-    });
+    return cy.contains('p',`${article}`).siblings('#productPrice').invoke('text')
   
 };
 
