@@ -29,22 +29,20 @@ describe('Actividad Pre-entrega', ()=>{
     it("Debe elegir dos productos y los añade al carrito", () =>{
         homePage.clickOnlineShopButton();
         productsPage.addItemToCart(data.articulos.articulo1.nombre);
-        productsPage.closeModalBtn();
         productsPage.addItemToCart(data.articulos.articulo2.nombre);
-        productsPage.closeModalBtn();
         productsPage.clickGoShoppingCartBtn();
         shoppingCartPage.clickShowTotalPriceBtn();
         shoppingCartPage.productVerification(data.articulos.articulo1.nombre).then(nombre1 =>{
             assert.equal(nombre1,data.articulos.articulo1.nombre)});
         shoppingCartPage.productVerification(data.articulos.articulo2.nombre).then(nombre1 =>{
             assert.equal(nombre1,data.articulos.articulo2.nombre)});
-        shoppingCartPage.priceVerification(data.articulos.articulo1.nombre,data.articulos.articulo1.precio).then(precio =>{
+        shoppingCartPage.priceVerification(data.articulos.articulo1.nombre).then(precio =>{
             assert.equal(precio,`$${data.articulos.articulo1.precio}`);
-            });;
-        shoppingCartPage.priceVerification(data.articulos.articulo2.nombre,data.articulos.articulo2.precio).then(precio =>{
+            });
+        shoppingCartPage.priceVerification(data.articulos.articulo2.nombre).then(precio =>{
             assert.equal(precio,`$${data.articulos.articulo2.precio}`);
-            });;
-        shoppingCartPage.devolverPrecio(totalPrice).then(precio => {
+            });
+        shoppingCartPage.totalPriceVerification(totalPrice).then(precio => {
             assert.equal(precio,totalPrice);
             });
     });

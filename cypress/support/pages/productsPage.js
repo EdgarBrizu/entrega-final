@@ -5,8 +5,6 @@ export class ProductsPage {
     }
 addItemToCart(article) {
     cy.contains(article, {timeput: 30000}).siblings('button').click();
-}
-closeModalBtn() {
     cy.xpath(this.modalBtn).click();
 }
 clickGoShoppingCartBtn() {
